@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: aura-support
+    runtime: node
+    region: singapore   # closest to India; change to: oregon / frankfurt / ohio
+    plan: free          # free tier — upgrade to starter for persistent disk
+
+    # Build: install deps + compile Vite frontend + bundle Express server
+    buildCommand: npm install && npm run build
+
+    # Start: run the compiled production server
+    startCommand: npm start
+
+    # Environment variables
+    # GEMINI_API_KEY must be set in Render Dashboard → Environment
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false        # set manually in Render dashboard (secret)
+
+    # Health check — Render pings this to confirm the service is alive
+    healthCheckPath: /api/kb
+
+    # Auto-deploy on every push to main branch
+    autoDeploy: true

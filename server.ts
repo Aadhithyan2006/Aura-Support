@@ -38,7 +38,7 @@ async function startServer() {
   const app = express();
   app.use(express.json());
 
-  const PORT = 3000;
+  const PORT = parseInt(process.env.PORT || "3000", 10);
 
   // Middleware to authenticate users (simple auth header or query param for this applet)
   // To keep things robust, we support a simple Authorization header with the user ID: "Bearer <userId>"

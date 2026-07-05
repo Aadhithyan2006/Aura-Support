@@ -1,0 +1,6 @@
+{
+  "name": "Technical Support Agent",
+  "description": "An AI-powered technical support agent that troubleshoots common technical issues and creates tickets for unresolved problems.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,104 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+@import "tailwindcss";
+
+/* ─── Premium Font Stack ──────────────────────────────────────────── */
+@theme {
+  --font-sans:  "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:  "Fira Code", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+
+  /* ─── Gold Palette (multi-stop) ──────────────────────────────────── */
+  --color-gold-50:  #fdf8ee;
+  --color-gold-100: #f7e9c8;
+  --color-gold-200: #edd698;
+  --color-gold-300: #e0bc68;
+  --color-gold-400: #d4a843;   /* bright highlight */
+  --color-gold-500: #c4943a;   /* primary brand gold */
+  --color-gold-600: #a87830;   /* deep gold */
+  --color-gold-700: #8a5e24;
+  --color-gold-800: #6b4519;
+  --color-gold-900: #4a2e0e;
+
+  /* ─── Surface Palette ────────────────────────────────────────────── */
+  --color-surface-900: #070707;   /* deepest background */
+  --color-surface-800: #0a0a0a;   /* app background */
+  --color-surface-700: #0d0d0d;   /* card background */
+  --color-surface-600: #111111;   /* elevated card */
+  --color-surface-500: #161616;   /* hover state */
+}
+
+/* ─── Base Resets ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ─── Global Gold Accent Override ────────────────────────────────── */
+/* Replace the old #c4a47c flat gold with the richer gradient-aware gold */
+:root {
+  --gold:           #c9973d;
+  --gold-light:     #d4a843;
+  --gold-dim:       #a87830;
+  --gold-muted:     rgba(201, 151, 61, 0.15);
+  --gold-border:    rgba(201, 151, 61, 0.30);
+  --gold-glow:      rgba(201, 151, 61, 0.12);
+}
+
+/* ─── Serif headings — Cormorant Garamond ligatures ─────────────── */
+.font-serif {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-feature-settings: "liga" 1, "dlig" 1, "onum" 1;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Mono — Fira Code ligatures ─────────────────────────────────── */
+.font-mono {
+  font-family: "Fira Code", ui-monospace, monospace;
+  font-feature-settings: "calt" 1, "ss01" 1;
+}
+
+/* ─── Premium gold text utility ──────────────────────────────────── */
+.text-gold {
+  color: var(--gold);
+}
+
+/* ─── Subtle gold shimmer on serif headings ─────────────────────── */
+.gold-heading {
+  background: linear-gradient(135deg, #e0bc68 0%, #c9973d 45%, #a87830 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Scrollbar styling ──────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 4px; height: 4px; }
+::-webkit-scrollbar-track        { background: transparent; }
+::-webkit-scrollbar-thumb        { background: rgba(201,151,61,0.25); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover  { background: rgba(201,151,61,0.45); }
+
+/* ─── Selection colour ───────────────────────────────────────────── */
+::selection {
+  background: rgba(201, 151, 61, 0.22);
+  color: #e0bc68;
+}
+
+/* ─── Fade-in utility ────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.3s ease forwards; }
